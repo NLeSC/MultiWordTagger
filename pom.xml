@@ -4,7 +4,7 @@
 
 	<groupId>KafMultiWordTagger</groupId>
 	<artifactId>KafMultiWordTagger</artifactId>
-	<version>0.0.1</version>
+	<version>0.0.1-instrumented</version>
 
     <repositories>
         <repository>

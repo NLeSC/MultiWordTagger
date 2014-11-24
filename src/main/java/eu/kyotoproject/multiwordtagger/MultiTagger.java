@@ -166,7 +166,15 @@ and rewrite these to:
         String strBeginDate = eu.kyotoproject.util.DateUtil.createTimestamp();
         String strEndDate = null;
 
+        System.err.println("Timestamp VUA-multiwordtagger start readinput: " + System.currentTimeMillis());
+
         parser.parseFile(in);
+
+        System.err.println("Timestamp VUA-multiwordtagger start work: " + System.currentTimeMillis());
+
+        doTagging(parser);
+
+        System.err.println("Timestamp VUA-multiwordtagger end work: " + System.currentTimeMillis());
 
         strEndDate = eu.kyotoproject.util.DateUtil.createTimestamp();
 
@@ -178,6 +186,7 @@ and rewrite these to:
             e.printStackTrace();
         }
         LP lp = new LP(name,version, strBeginDate, strBeginDate, strEndDate, host);
+        parser.getKafMetaData().addLayer(layer, lp);
         if (NAF) {
             parser.writeNafToStream(out);
         }

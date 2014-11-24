@@ -34,6 +34,7 @@ public class MultiTaggerSingleNaf {
 
 
     static public void main (String [] args) {
+        System.err.println("Timestamp VUA-multiwordtagger start in-command: " + System.currentTimeMillis());
         tagger = new MultiTagger();
         tagger.setNAF(true);
         String configFilePath = "";
@@ -74,6 +75,7 @@ public class MultiTaggerSingleNaf {
         } catch (IOException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }
+        System.err.println("Timestamp VUA-multiwordtagger end in-command: " + System.currentTimeMillis());
     }
 
 }
