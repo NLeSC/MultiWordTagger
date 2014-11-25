@@ -48,7 +48,12 @@ public class MultiTaggerSingleNaf {
         }
         try {
           //  System.out.println("configFilePath = " + configFilePath);
-            if (tagger.initializeTagger(configFilePath)==0) {
+
+            System.err.println("Timestamp VUA-multiwordtagger start setup: " + System.currentTimeMillis());
+            int initResult = tagger.initializeTagger(configFilePath);
+            System.err.println("Timestamp VUA-multiwordtagger end setup: " + System.currentTimeMillis());
+
+            if (initResult==0) {
                 if (args.length==2) {
                     tagger.tagMultiWords(layer, name, version, System.in, System.out);
                 }
