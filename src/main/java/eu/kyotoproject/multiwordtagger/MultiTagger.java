@@ -172,7 +172,8 @@ and rewrite these to:
 
         System.err.println("Timestamp VUA-multiwordtagger start work: " + System.currentTimeMillis());
 
-        doTagging(parser);
+        // enabling tagging sends srl into infinite recursive loop which causes a StackOverflowError and an empty output file.
+        // doTagging(parser);
 
         System.err.println("Timestamp VUA-multiwordtagger end work: " + System.currentTimeMillis());
 
